@@ -10,7 +10,7 @@ function App() {
   const [destLanguage, setDestLanguage] = useState();
 
   const handleTranslateClicked = () => {
-    // window.alert(inputString+' ,'+srcLanguage+' ,'+destLanguage);
+    window.alert(inputString+' ,'+srcLanguage+' ,'+destLanguage);
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -26,7 +26,7 @@ function App() {
       body: raw,
     };
 
-    fetch("http://localhost:3001", requestOptions)
+    fetch("http://127.0.0.1:5000/translate", requestOptions)
       .then((response) => response.text())
       .then((result) => setOutputString(result))
       .catch((error) => setOutputString("error: " + error));

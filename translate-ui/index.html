@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button2 {background-color: #008CBA;} /* Blue */
+</style>
+</head>
+<body>
+
+<h1>Translate</h1>
+<p>Click on the button to translate your content</p>
+
+<button class="button button2" id="btn1">Translate</button>
+
+<!-- <form>
+    <label for="content">Content:</label><br>
+    <input type="text" id="content" name="content"><br>
+</form> -->
+
+<div id="counter">
+    <script>
+        function translate(){
+            fetch('http://127.0.0.1:5000/translate'), {
+
+                method: "POST",
+     
+     // Adding body or contents to send
+                body: JSON.stringify({
+                    "inputs": "Hello, My name is Shivam. What is yours? I live in Frankfurt. I am pursuing my masters in Data Science"
+                }),
+                
+                // Adding headers to the request
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+
+            }
+            // .then(response => response.json())
+            // .then((data) => {
+            //     document.getElementById('counter').innerHTML = data
+            // }).then(data => console.log(data));
+
+        } 
+        btn1.addEventListener('click', translate);
+    </script>
+  </div>
+</body>
+</html>
